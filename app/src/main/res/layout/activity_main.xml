@@ -6,7 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.cachecats.meituan.app.MainActivity">
-
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#458af7" android:padding="10dp">
+        <ImageView android:id="@+id/home_header_left_link"
+            android:layout_width="100dp" android:layout_height="40dp"
+            android:src="@drawable/home_header_left_link"
+            android:padding="5dp" android:contentDescription="1"
+            android:scaleType="centerInside"/>
+        <ImageView
+            android:layout_width="50dp" android:layout_height="40dp"
+            android:src="@drawable/home_header_left_more"
+            android:padding="10dp" android:contentDescription="1"
+            android:layout_alignParentRight="true" android:layout_alignTop="@+id/home_header_left_link"
+            android:scaleType="centerInside"/>
+    </RelativeLayout>
     <com.cachecats.meituan.widget.bottomtab.CustomBottomTabWidget
         android:id="@+id/tabWidget"
         android:layout_width="match_parent"

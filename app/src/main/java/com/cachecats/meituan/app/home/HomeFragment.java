@@ -1,48 +1,38 @@
 package com.cachecats.meituan.app.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.cachecats.domin.shop.model.ShopModel;
 import com.cachecats.meituan.MyApplication;
 import com.cachecats.meituan.R;
+import com.cachecats.meituan.app.HistoryActivity;
+import com.cachecats.meituan.app.MainActivity;
 import com.cachecats.meituan.app.home.adapter.LittleModuleAdapter;
-import com.cachecats.meituan.app.home.adapter.ShopListAdapter;
 import com.cachecats.meituan.app.home.model.IconTitleModel;
 import com.cachecats.meituan.base.BaseFragment;
 import com.cachecats.meituan.di.components.DaggerActivityComponent;
-import com.cachecats.meituan.utils.GlideImageLoader;
 import com.cachecats.meituan.utils.ToastUtils;
+import com.cachecats.meituan.widget.IconTitleView;
+import com.cachecats.meituan.widget.decoration.HomeGridDecoration;
 import com.cachecats.meituan.widget.refresh.CustomRefreshFooter;
 import com.cachecats.meituan.widget.refresh.CustomRefreshHeader;
-import com.cachecats.meituan.widget.HomeAdsView;
-import com.cachecats.meituan.widget.IconTitleView;
-import com.cachecats.meituan.widget.decoration.DividerItemDecoration;
-import com.cachecats.meituan.widget.decoration.HomeGridDecoration;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.orhanobut.logger.Logger;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.RefreshState;
-import com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
-import com.youth.banner.Banner;
-import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -56,29 +46,21 @@ import butterknife.ButterKnife;
 
 public class HomeFragment extends BaseFragment implements HomeFragmentContract.View {
 
-    @BindView(R.id.home_banner)
-    Banner banner;
-    //大模块的LinearLayout布局
-    @BindView(R.id.ll_big_module_fragment_home)
-    LinearLayout llBigModule;
+
     //小模块GridView布局
     @BindView(R.id.recyclerview_little_module)
     RecyclerView littleModuleRecyclerView;
-    //4块广告封装成的自定义View
-    @BindView(R.id.home_ads_view)
-    HomeAdsView homeAdsView;
-    //团购商店列表
-    @BindView(R.id.recycler_view_shops)
-    RecyclerView rvShopList;
     //下拉刷新组件
     @BindView(R.id.smartRefreshLayout_home)
     SmartRefreshLayout smartRefreshLayout;
+    @BindView(R.id.home_header_tab)
+    TabLayout tabLayout;
+    @BindView(R.id.home_header_current_history)
+    TextView tvHistory;
 
     @Inject
     HomeFragmentContract.Presenter presenter;
 
-    private ShopListAdapter mShopListAdapter;
-    private List<ShopModel> mShopModels = Collections.emptyList();
 
 
     @Nullable
@@ -105,11 +87,38 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
     }
 
     private void init() {
-        initBanner();
+        initHeaderTab();
+        initCurrent();
         initLittleModuleRecyclerView();
-        initAds();
-        initShopList();
         initSmartRefreshLayout();
+    }
+
+    private void initCurrent() {
+        tvHistory.setOnClickListener(v -> {
+            ToastUtils.show("历史记录");
+            Intent intent = new Intent(this.getActivity(), HistoryActivity.class);
+            this.startActivity(intent);
+//                ToastUtils.show("历史记录");
+        });
+    }
+
+    private void initHeaderTab() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                ToastUtils.show(tab.getText() != null ? tab.getText().toString() : "");
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
 
@@ -130,8 +139,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
                 presenter.onRefresh();
             }
         });
-
-
     }
 
     @Override
@@ -160,7 +167,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
      */
     @Override
     public void addData2RecyclerView(List<ShopModel> shopModels) {
-        mShopListAdapter.addData(shopModels);
     }
 
     @Override
@@ -168,50 +174,11 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
         smartRefreshLayout.setRefreshFooter(footer);
     }
 
-    private void initShopList() {
-        LinearLayoutManager lm = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        };
-        rvShopList.setLayoutManager(lm);
-        rvShopList.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
-        rvShopList.setItemAnimator(new DefaultItemAnimator());
-        mShopListAdapter = new ShopListAdapter(getActivity(), R.layout.item_home_shop_list, mShopModels);
-//        mShopListAdapter.setUpFetchEnable(true);
-        rvShopList.setAdapter(mShopListAdapter);
-//        mShopListAdapter.setEmptyView();
-    }
 
     @Override
     public void setShopListData(List<ShopModel> shopModels) {
-        mShopListAdapter.setNewData(shopModels);
     }
 
-    private void initAds() {
-        homeAdsView.setOnAdsClickListener(new HomeAdsView.OnAdsClickListener() {
-            @Override
-            public void onAds1Click() {
-                ToastUtils.show("Ads1");
-            }
-
-            @Override
-            public void onAds2Click() {
-                ToastUtils.show("Ads2");
-            }
-
-            @Override
-            public void onAds3Click() {
-                ToastUtils.show("Ads3");
-            }
-
-            @Override
-            public void onAds4Click() {
-                ToastUtils.show("Ads4");
-            }
-        });
-    }
 
     /**
      * 初始化小模块的RecyclerView
@@ -242,12 +209,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        //增加banner的体验
-        banner.startAutoPlay();
-    }
 
     @Override
     public void onResume() {
@@ -255,31 +216,11 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
         presenter.onStart();
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        //增加banner的体验
-        banner.stopAutoPlay();
-    }
-
-    public void initBanner() {
-        //设置banner的各种属性
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
-                .setImageLoader(new GlideImageLoader())
-                .setImages(presenter.getBannerImages())
-                .setBannerAnimation(Transformer.Default)
-                .isAutoPlay(true)
-                .setDelayTime(3000)
-                .setIndicatorGravity(BannerConfig.CENTER)
-                .start();
-    }
-
     /**
      * 往根布局上添加View
      */
     @Override
     public void addViewToBigModule(IconTitleView iconTitleView) {
-        llBigModule.addView(iconTitleView);
     }
 
 

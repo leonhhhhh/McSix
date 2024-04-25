@@ -1,5 +1,6 @@
 package com.cachecats.meituan.di.components;
 
+import com.cachecats.meituan.app.HistoryActivity;
 import com.cachecats.meituan.app.MainActivity;
 import com.cachecats.meituan.app.home.HomeFragment;
 import com.cachecats.meituan.di.modules.ActivityModule;
@@ -17,7 +18,7 @@ import dagger.Component;
 public interface ActivityComponent {
 
     void inject(MainActivity activity);
-
     void inject(HomeFragment fragment);
+    void inject(HistoryActivity activity);
 
 }

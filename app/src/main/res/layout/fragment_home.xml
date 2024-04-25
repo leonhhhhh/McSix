@@ -1,82 +1,1338 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#e5e5e5"
     android:orientation="vertical">
 
     <!--下拉刷新组件-->
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/smartRefreshLayout_home"
-        android:layout_width="match_parent"
+        android:id="@+id/smartRefreshLayout_home" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent" android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="nihao"
-                android:gravity="center"
-                />
-
-
             <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="match_parent" android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!--Banner轮播条-->
-                    <com.youth.banner.Banner
-                        android:id="@+id/home_banner"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        app:image_scale_type="center_crop"
-                        app:scroll_time="500" />
-
-                    <!--5个大模块布局-->
-                    <LinearLayout
-                        android:id="@+id/ll_big_module_fragment_home"
-                        android:layout_width="match_parent"
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/home_header_tab" android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:layout_marginTop="15dp"
-                        android:orientation="horizontal" />
+                        android:layout_margin="15dp"
+                        android:background="@drawable/bg_round_corner_border"
+                        app:tabIndicatorColor="@color/main_blue" app:tabSelectedTextColor="@color/main_blue"
+                        app:tabTextColor="@android:color/black">
+
+                        <android.support.design.widget.TabItem
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="澳门六合彩" />
+
+                        <android.support.design.widget.TabItem
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="澳门六十彩" />
+
+                        <android.support.design.widget.TabItem
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="香港六合彩" />
+
+                        <android.support.design.widget.TabItem
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="香港六十彩" />
+                    </android.support.design.widget.TabLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp" android:layout_marginRight="15dp"
+                        android:background="@drawable/bg_round_corner_border"
+                        android:gravity="center_horizontal" android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:gravity="center_vertical" android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="20dp" android:layout_height="20dp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/home_header_current_nomber_date" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:paddingStart="3dp"
+                                    android:text="第" />
+
+                                <TextView
+                                    android:id="@+id/home_header_current_number"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:text="2024116"
+                                    android:textColor="@color/main_blue" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:text="期开奖结果" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/home_header_current_history"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:layout_alignParentEnd="true"
+                                android:clickable="true" android:focusable="true"
+                                android:text="历史记录 >" android:textColor="@color/main_blue" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:gravity="center_vertical" android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                    android:gravity="center"
+                                    android:paddingEnd="8dp"
+                                    android:text="2" android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="兔/金" android:textColor="@color/gray666" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp" android:background="@drawable/number_bg_green"
+                                    android:gravity="center"
+                                    android:paddingEnd="8dp"
+                                    android:text="2" android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="马/金" android:textColor="@color/gray666" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                    android:gravity="center"
+                                    android:paddingEnd="8dp"
+                                    android:text="2" android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="兔/金" android:textColor="@color/gray666" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                    android:gravity="center"
+                                    android:paddingEnd="8dp"
+                                    android:text="2" android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="蛇/水" android:textColor="@color/gray666" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                    android:gravity="center"
+                                    android:paddingEnd="8dp"
+                                    android:text="2" android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="鸡/水" android:textColor="@color/gray666" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                    android:gravity="center"
+                                    android:paddingEnd="8dp"
+                                    android:text="2" android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="鸡/火" android:textColor="@color/gray666" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:paddingBottom="20dp"
+                                android:text="+" android:textSize="30sp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_height="wrap_content"
+                                android:layout_weight="1" android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                    android:gravity="center"
+                                    android:paddingEnd="8dp"
+                                    android:text="2" android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="羊/金" android:textColor="@color/gray666" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:paddingTop="10dp" android:paddingBottom="10dp"
+                            android:text="第2024117期 2024-04-26 星期五 21时30分"
+                            android:textColor="@color/gray666" android:textSize="13sp" />
+                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_horizontal"
+                    android:background="@drawable/bg_round_corner_border"
+                    android:layout_marginLeft="15dp" android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp" android:padding="10dp">
+                    <LinearLayout
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="45dp" android:layout_height="45dp"
+                            android:src="@drawable/home_header_kjzb"
+                            android:scaleType="centerInside" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+                            android:text="开奖直播" android:textColor="@color/black" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="45dp" android:layout_height="45dp"
+                            android:src="@drawable/home_header_lhtk"
+                            android:scaleType="centerInside" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+                            android:text="六合图库" android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="45dp" android:layout_height="45dp"
+                            android:src="@drawable/home_header_zst"
+                            android:scaleType="centerInside" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+                            android:text="走势图" android:textColor="@color/black" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="45dp" android:layout_height="45dp"
+                            android:src="@drawable/home_header_tmzs"
+                            android:scaleType="centerInside" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+                            android:text="挑码助手" android:textColor="@color/black" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="45dp" android:layout_height="45dp"
+                            android:src="@drawable/home_header_fsjs"
+                            android:scaleType="centerInside" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_marginTop="5dp"
+                            android:text="复式计算" android:textColor="@color/black" />
+                    </LinearLayout>
+                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:gravity="center_horizontal"
+                        android:background="@drawable/bg_round_corner_border"
+                        android:layout_marginLeft="15dp" android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp" android:paddingLeft="10dp"
+                        android:paddingRight="10dp" android:paddingBottom="10dp"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content" android:layout_height="40dp"
+                            android:src="@drawable/home_last_five_title" android:scaleType="centerInside"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:gravity="center_horizontal" android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical" android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="20dp" android:layout_height="20dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/home_header_current_nomber_date" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:paddingStart="3dp"
+                                        android:text="第" />
+
+                                    <TextView
+                                        android:id="@+id/home_header_current_number"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="2024116"
+                                        android:textColor="@color/main_blue" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="期开奖结果" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/home_header_current_history"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true" android:clickable="true"
+                                    android:focusable="true" android:text="2024年04月25日"  />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_green"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="马/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="蛇/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/火" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:paddingBottom="20dp"
+                                    android:text="+" android:textSize="30sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="羊/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical" android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="20dp" android:layout_height="20dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/home_header_current_nomber_date" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:paddingStart="3dp"
+                                        android:text="第" />
+
+                                    <TextView
+                                        android:id="@+id/home_header_current_number"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="2024116"
+                                        android:textColor="@color/main_blue" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="期开奖结果" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/home_header_current_history"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true" android:clickable="true"
+                                    android:focusable="true" android:text="2024年04月25日"  />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_green"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="马/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="蛇/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/火" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:paddingBottom="20dp"
+                                    android:text="+" android:textSize="30sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="羊/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical" android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="20dp" android:layout_height="20dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/home_header_current_nomber_date" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:paddingStart="3dp"
+                                        android:text="第" />
+
+                                    <TextView
+                                        android:id="@+id/home_header_current_number"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="2024116"
+                                        android:textColor="@color/main_blue" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="期开奖结果" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/home_header_current_history"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true" android:clickable="true"
+                                    android:focusable="true" android:text="2024年04月25日"  />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_green"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="马/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="蛇/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/火" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:paddingBottom="20dp"
+                                    android:text="+" android:textSize="30sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="羊/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical" android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="20dp" android:layout_height="20dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/home_header_current_nomber_date" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:paddingStart="3dp"
+                                        android:text="第" />
+
+                                    <TextView
+                                        android:id="@+id/home_header_current_number"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="2024116"
+                                        android:textColor="@color/main_blue" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="期开奖结果" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/home_header_current_history"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true" android:clickable="true"
+                                    android:focusable="true" android:text="2024年04月25日"  />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_green"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="马/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="蛇/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/火" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:paddingBottom="20dp"
+                                    android:text="+" android:textSize="30sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="羊/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical" android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="20dp" android:layout_height="20dp"
+                                        android:scaleType="centerInside"
+                                        android:src="@drawable/home_header_current_nomber_date" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:paddingStart="3dp"
+                                        android:text="第" />
+
+                                    <TextView
+                                        android:id="@+id/home_header_current_number"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="2024116"
+                                        android:textColor="@color/main_blue" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:text="期开奖结果" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/home_header_current_history"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true" android:clickable="true"
+                                    android:focusable="true" android:text="2024年04月25日"  />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:gravity="center_vertical" android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_green"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="马/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="兔/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="蛇/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/水" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_red"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="鸡/火" android:textColor="@color/gray666" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:paddingBottom="20dp"
+                                    android:text="+" android:textSize="30sp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp" android:layout_height="wrap_content"
+                                    android:layout_weight="1" android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp" android:background="@drawable/number_bg_blue"
+                                        android:gravity="center"
+                                        android:paddingEnd="8dp"
+                                        android:text="2" android:textSize="20sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="羊/金" android:textColor="@color/gray666" />
+                                </LinearLayout>
+                            </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:paddingTop="10dp" android:paddingBottom="10dp"
+                                android:text="查看更多历史开奖记录"
+                                android:textColor="@color/red" android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:gravity="center_horizontal"
+                        android:background="@drawable/bg_round_corner_border"
+                        android:layout_marginLeft="15dp" android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp" android:paddingLeft="10dp"
+                        android:paddingRight="10dp" android:paddingBottom="10dp"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content" android:layout_height="40dp"
+                            android:src="@drawable/home_mc_six_title" android:scaleType="centerInside"
+                            />
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content" android:orientation="horizontal"
+                                android:layout_height="wrap_content" >
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:orientation="vertical"
+                                    android:gravity="center_horizontal">
+                                    <ImageView
+                                        android:layout_width="32dp" android:layout_height="32dp"
+                                        android:scaleType="centerInside" android:src="@drawable/home_pic_normal"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2024彩色" android:textColor="@color/black"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:orientation="vertical"
+                                    android:gravity="center_horizontal" android:layout_marginLeft="5dp">
+                                    <ImageView
+                                        android:layout_width="32dp" android:layout_height="32dp"
+                                        android:scaleType="centerInside" android:src="@drawable/home_pic_gray"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2024黑白" android:textColor="@color/black"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:orientation="vertical"
+                                    android:gravity="center_horizontal">
+                                    <ImageView
+                                        android:layout_width="32dp" android:layout_height="32dp"
+                                        android:scaleType="centerInside" android:src="@drawable/home_pic_normal"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2024彩色" android:textColor="@color/black"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:orientation="vertical"
+                                    android:gravity="center_horizontal" android:layout_marginLeft="5dp">
+                                    <ImageView
+                                        android:layout_width="32dp" android:layout_height="32dp"
+                                        android:scaleType="centerInside" android:src="@drawable/home_pic_gray"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2024黑白" android:textColor="@color/black"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:orientation="vertical"
+                                    android:gravity="center_horizontal">
+                                    <ImageView
+                                        android:layout_width="32dp" android:layout_height="32dp"
+                                        android:scaleType="centerInside" android:src="@drawable/home_pic_normal"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2024彩色" android:textColor="@color/black"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:orientation="vertical"
+                                    android:gravity="center_horizontal" android:layout_marginLeft="5dp">
+                                    <ImageView
+                                        android:layout_width="32dp" android:layout_height="32dp"
+                                        android:scaleType="centerInside" android:src="@drawable/home_pic_gray"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2024黑白" android:textColor="@color/black"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:orientation="vertical"
+                                    android:gravity="center_horizontal">
+                                    <ImageView
+                                        android:layout_width="32dp" android:layout_height="32dp"
+                                        android:scaleType="centerInside" android:src="@drawable/home_pic_normal"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2024彩色" android:textColor="@color/black"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:orientation="vertical"
+                                    android:gravity="center_horizontal" android:layout_marginLeft="5dp">
+                                    <ImageView
+                                        android:layout_width="32dp" android:layout_height="32dp"
+                                        android:scaleType="centerInside" android:src="@drawable/home_pic_gray"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2024黑白" android:textColor="@color/black"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </LinearLayout>
 
                     <!--分割线-->
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_width="match_parent" android:layout_height="1dp"
+                        android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
                         android:background="@color/dividerColorF0" />
 
                     <!--两行小模块布局 RecyclerView实现的GridView -->
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recyclerview_little_module"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp" android:visibility="invisible"/>
 
-                    <!--四个广告封装的自定义View-->
-                    <com.cachecats.meituan.widget.HomeAdsView
-                        android:id="@+id/home_ads_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <!--团购列表-->
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/recycler_view_shops"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
             </ScrollView>

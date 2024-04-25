@@ -2,30 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_tab_widget"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:layout_marginBottom="-15dp"/>
 
     <!--下面的tab标签布局-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="3dp"
+        android:paddingBottom="0dp"
         android:paddingTop="3dp"
-        >
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:background="@android:color/transparent">
 
         <LinearLayout
             android:id="@+id/ll_menu_home_page"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            style="@style/menuTabStyle">
 
             <ImageView
                 android:id="@+id/iv_menu_home"
@@ -43,8 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            style="@style/menuTabStyle">
 
             <ImageView
                 android:id="@+id/iv_menu_nearby"
@@ -54,35 +55,45 @@
             <TextView
                 android:id="@+id/tv_menu_nearby"
                 style="@style/menuTextStyle"
-                android:text="附近" />
+                android:text="赛马会" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_menu_discover"
+        <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
+            >
+            <LinearLayout
+                android:id="@+id/ll_menu_discover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="30dip"
+                android:background="#fafafa"
+                android:layout_alignParentBottom="true">
+                <TextView
+                    android:id="@+id/tv_menu_discover"
+                    style="@style/menuTextStyle"
+                    android:text="一肖中特" />
+            </LinearLayout>
             <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:id="@+id/iv_menu_discover"
-                style="@style/menuIconStyle"
-                android:src="@drawable/selector_icon_menu_discover" />
+                android:src="@drawable/selector_icon_menu_discover"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="20dp"/>
+        </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tv_menu_discover"
-                style="@style/menuTextStyle"
-                android:text="发现" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_menu_order"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            style="@style/menuTabStyle">
 
             <ImageView
                 android:id="@+id/iv_menu_order"
@@ -92,7 +103,7 @@
             <TextView
                 android:id="@+id/tv_menu_order"
                 style="@style/menuTextStyle"
-                android:text="订单" />
+                android:text="寻宝" />
         </LinearLayout>
 
         <LinearLayout
@@ -100,8 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            style="@style/menuTabStyle">
 
             <ImageView
                 android:id="@+id/iv_menu_mine"
@@ -111,7 +121,7 @@
             <TextView
                 android:id="@+id/tv_menu_mine"
                 style="@style/menuTextStyle"
-                android:text="我的" />
+                android:text="下载" />
         </LinearLayout>
     </LinearLayout>
 
