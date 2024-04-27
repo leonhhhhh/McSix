@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,18 +14,15 @@ import android.widget.TextView;
 import com.cachecats.domin.shop.model.ShopModel;
 import com.cachecats.meituan.MyApplication;
 import com.cachecats.meituan.R;
+import com.cachecats.meituan.api.model.LotteryHistoryResp;
+import com.cachecats.meituan.api.model.LotteryPicListResp;
 import com.cachecats.meituan.api.model.LotteryResp;
 import com.cachecats.meituan.app.HistoryActivity;
-import com.cachecats.meituan.app.home.adapter.LittleModuleAdapter;
-import com.cachecats.meituan.app.home.model.IconTitleModel;
 import com.cachecats.meituan.base.BaseFragment;
 import com.cachecats.meituan.di.components.DaggerActivityComponent;
 import com.cachecats.meituan.utils.ToastUtils;
-import com.cachecats.meituan.widget.IconTitleView;
-import com.cachecats.meituan.widget.decoration.HomeGridDecoration;
 import com.cachecats.meituan.widget.refresh.CustomRefreshFooter;
 import com.cachecats.meituan.widget.refresh.CustomRefreshHeader;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -107,6 +102,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 ToastUtils.show(tab.getText() != null ? tab.getText().toString() : "");
+                presenter.onTabChange(tab.getPosition());
             }
 
             @Override
@@ -175,42 +171,51 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
     }
 
     @Override
+    public void displayLotteryHistoryData(LotteryHistoryResp lotteryHistoryResp) {
+        Logger.d("最新的开奖信息历史:"+ new Gson().toJson(lotteryHistoryResp));
+    }
+
+    @Override
+    public void displayLotteryHistoryDataFilter(LotteryHistoryResp lotteryHistoryResp) {
+        Logger.d("最新的开奖信息历史带筛选:"+ new Gson().toJson(lotteryHistoryResp));
+    }
+
+    @Override
+    public void displayLotteryPicListResp(LotteryPicListResp picListResp) {
+        Logger.d("获取分页彩票图片资讯:"+ new Gson().toJson(picListResp));
+    }
+
+    @Override
     public void setRefreshFooter(RefreshFooter footer) {
         smartRefreshLayout.setRefreshFooter(footer);
     }
-
-
-    @Override
-    public void setShopListData(List<ShopModel> shopModels) {
-    }
-
 
     /**
      * 初始化小模块的RecyclerView
      */
     private void initLittleModuleRecyclerView() {
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 5);
-        //设置LayoutManager
-        littleModuleRecyclerView.setLayoutManager(gridLayoutManager);
-        //设置分割器
-        littleModuleRecyclerView.addItemDecoration(new HomeGridDecoration(12));
-        //设置动画
-        littleModuleRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        //设置Adapter
-        List<IconTitleModel> iconTitleModels = presenter.getIconTitleModels();
-        LittleModuleAdapter littleModuleAdapter = new LittleModuleAdapter(
-                R.layout.view_icon_title_small, iconTitleModels);
-
-        littleModuleRecyclerView.setAdapter(littleModuleAdapter);
-        //设置item点击事件
-        littleModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                ToastUtils.show(iconTitleModels.get(position).getTitle());
-            }
-        });
+//
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 5);
+//        //设置LayoutManager
+//        littleModuleRecyclerView.setLayoutManager(gridLayoutManager);
+//        //设置分割器
+//        littleModuleRecyclerView.addItemDecoration(new HomeGridDecoration(12));
+//        //设置动画
+//        littleModuleRecyclerView.setItemAnimator(new DefaultItemAnimator());
+//
+//        //设置Adapter
+//        List<IconTitleModel> iconTitleModels = presenter.getIconTitleModels();
+//        LittleModuleAdapter littleModuleAdapter = new LittleModuleAdapter(
+//                R.layout.view_icon_title_small, iconTitleModels);
+//
+//        littleModuleRecyclerView.setAdapter(littleModuleAdapter);
+//        //设置item点击事件
+//        littleModuleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+//                ToastUtils.show(iconTitleModels.get(position).getTitle());
+//            }
+//        });
 
     }
 
@@ -220,14 +225,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
         super.onResume();
         presenter.onStart();
     }
-
-    /**
-     * 往根布局上添加View
-     */
-    @Override
-    public void addViewToBigModule(IconTitleView iconTitleView) {
-    }
-
 
     @Override
     public void onDestroy() {
