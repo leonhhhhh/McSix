@@ -1,6 +1,7 @@
 package com.cachecats.meituan.app.home;
 
 import com.cachecats.domin.shop.model.ShopModel;
+import com.cachecats.meituan.api.model.LotteryResp;
 import com.cachecats.meituan.app.home.model.IconTitleModel;
 import com.cachecats.meituan.base.BasePresenter;
 import com.cachecats.meituan.base.BaseView;
@@ -35,8 +36,7 @@ public interface HomeFragmentContract {
 
         void addData2RecyclerView(List<ShopModel> shopModels);
 
-
-
+        void displayLastedLotteryData(LotteryResp lastedLotteryResp);
 
     }
 
@@ -49,5 +49,6 @@ public interface HomeFragmentContract {
         void onLoadMore();
 
         void onRefresh();
+        void getLatestLotteryData();
     }
 }

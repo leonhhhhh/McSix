@@ -16,8 +16,8 @@ import android.widget.TextView;
 import com.cachecats.domin.shop.model.ShopModel;
 import com.cachecats.meituan.MyApplication;
 import com.cachecats.meituan.R;
+import com.cachecats.meituan.api.model.LotteryResp;
 import com.cachecats.meituan.app.HistoryActivity;
-import com.cachecats.meituan.app.MainActivity;
 import com.cachecats.meituan.app.home.adapter.LittleModuleAdapter;
 import com.cachecats.meituan.app.home.model.IconTitleModel;
 import com.cachecats.meituan.base.BaseFragment;
@@ -28,6 +28,8 @@ import com.cachecats.meituan.widget.decoration.HomeGridDecoration;
 import com.cachecats.meituan.widget.refresh.CustomRefreshFooter;
 import com.cachecats.meituan.widget.refresh.CustomRefreshHeader;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -60,8 +62,6 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
 
     @Inject
     HomeFragmentContract.Presenter presenter;
-
-
 
     @Nullable
     @Override
@@ -167,6 +167,11 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
      */
     @Override
     public void addData2RecyclerView(List<ShopModel> shopModels) {
+    }
+
+    @Override
+    public void displayLastedLotteryData(LotteryResp lastedLotteryResp) {
+        Logger.d("最新的开奖信息:"+ new Gson().toJson(lastedLotteryResp));
     }
 
     @Override

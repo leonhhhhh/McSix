@@ -6,6 +6,8 @@ import android.widget.LinearLayout;
 import com.cachecats.domin.shop.service.GroupPackageService;
 import com.cachecats.domin.shop.service.ShopService;
 import com.cachecats.meituan.R;
+import com.cachecats.meituan.api.model.LotteryResp;
+import com.cachecats.meituan.api.repository.LotteryRepository;
 import com.cachecats.meituan.app.home.model.IconTitleModel;
 import com.cachecats.meituan.mock.MockUtils;
 import com.cachecats.meituan.utils.ToastUtils;
@@ -18,6 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by solo on 2018/1/10.
@@ -54,17 +61,20 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
     private boolean isNoMoreData = false;
 
 
+    private LotteryRepository lotteryRepository;
+
     @Inject
     public HomeFragmentPresenter(Context context,
                                  ShopService shopService,
                                  GroupPackageService groupPackageService,
                                  MockUtils mockUtils,
-                                 CloseableRxServiceExecutor executor) {
+                                 CloseableRxServiceExecutor executor, LotteryRepository lotteryRepository) {
         mContext = context;
         this.shopService = shopService;
         this.groupPackageService = groupPackageService;
         this.mockUtils = mockUtils;
         this.executor = executor;
+        this.lotteryRepository = lotteryRepository;
     }
 
     @Override
@@ -82,7 +92,13 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
 //        getAllShops();
 //        mockUtils.mockGroupInfoData();
         getFirstPageShops();
+        initLastedLotteryData();
     }
+
+    private void initLastedLotteryData() {
+        getLatestLotteryData();
+    }
+
 
     @Override
     public void onDestroy() {
@@ -156,6 +172,32 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
                 },
                 error -> {
                     mFragment.finishRefresh(false);
+                });
+    }
+
+    @Override
+    public void getLatestLotteryData() {
+        lotteryRepository.getLatestLotteryData(1)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<LotteryResp>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(LotteryResp responseObject) {
+                        mFragment.displayLastedLotteryData(responseObject);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+//
+                    }
+
+                    @Override
+                    public void onComplete() {
+                    }
                 });
     }
 

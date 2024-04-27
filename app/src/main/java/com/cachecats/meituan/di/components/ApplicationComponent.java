@@ -14,6 +14,7 @@ import com.cachecats.domin.shop.service.GroupPackageService;
 import com.cachecats.domin.shop.service.ShopGroupInfoService;
 import com.cachecats.domin.shop.service.ShopService;
 import com.cachecats.meituan.MyApplication;
+import com.cachecats.meituan.api.repository.LotteryRepository;
 import com.cachecats.meituan.app.home.HomeFragmentContract;
 import com.cachecats.meituan.app.home.HomeFragmentPresenter;
 import com.cachecats.meituan.di.modules.ApplicationModule;
@@ -65,4 +66,5 @@ public interface ApplicationComponent {
     ShopGroupInfoService shopGroupInfoService();
 
     CloseableRxServiceExecutor closeableRxServiceExecutor();
+    LotteryRepository LotteryRepository();
 }
