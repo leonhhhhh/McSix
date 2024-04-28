@@ -2,11 +2,13 @@ package com.cachecats.meituan.app.home;
 
 import android.content.Context;
 
+import com.cachecats.meituan.R;
 import com.cachecats.meituan.api.model.LotteryHistoryResp;
 import com.cachecats.meituan.api.model.LotteryPicListResp;
 import com.cachecats.meituan.api.model.LotteryResp;
 import com.cachecats.meituan.api.repository.LotteryRepository;
 import com.cachecats.meituan.constants.LotteryType;
+import com.orhanobut.logger.Logger;
 import com.solo.common.rxjava.CloseableRxServiceExecutor;
 
 import javax.inject.Inject;
@@ -62,6 +64,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
 
     @Override
     public void onTabChange(int tab) {
+        mTab = tab;
         init();
     }
 
@@ -150,16 +153,19 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
 
                     @Override
                     public void onNext(LotteryResp responseObject) {
+                        Logger.d("11111");
                         mFragment.displayLastedLotteryData(responseObject);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-//
+                        e.printStackTrace();
+                        Logger.d("2222");
                     }
 
                     @Override
                     public void onComplete() {
+                        Logger.d("33333");
                     }
                 });
     }
@@ -192,28 +198,28 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
 
     @Override
     public void getLotteryHistoryDataFilter() {
-        lotteryRepository.getLotteryHistoryDataFilter(getType(),5,2024)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<LotteryHistoryResp>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-
-                    @Override
-                    public void onNext(LotteryHistoryResp responseObject) {
-                        mFragment.displayLotteryHistoryData(responseObject);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
+//        lotteryRepository.getLotteryHistoryDataFilter(getType(),5,2024)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Observer<LotteryHistoryResp>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                    }
 //
-                    }
-
-                    @Override
-                    public void onComplete() {
-                    }
-                });
+//                    @Override
+//                    public void onNext(LotteryHistoryResp responseObject) {
+//                        mFragment.displayLotteryHistoryData(responseObject);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+////
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                    }
+//                });
     }
 
     @Override
@@ -242,6 +248,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
                 });
     }
     private int getType(){
+        Logger.d("当前的tab是"+mTab);
         if (mTab == 0){
             return LotteryType.TYPE_MC_6;
         }else if (mTab == 1){
@@ -253,5 +260,13 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
         }else {
             return LotteryType.TYPE_MC_6;
         }
+    }
+    public int getResIdByColor(int waveColor) {
+        if (waveColor == 1){
+            return R.drawable.number_bg_red;
+        }else if (waveColor == 2){
+            return R.drawable.number_bg_blue;
+        }
+        return R.drawable.number_bg_green;
     }
 }

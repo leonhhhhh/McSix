@@ -1,10 +1,11 @@
 package com.cachecats.meituan.widget.decoration;
 
 import android.graphics.Rect;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.cachecats.meituan.utils.DensityUtils;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by solo on 2018/1/11.

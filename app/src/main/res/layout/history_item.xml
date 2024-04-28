@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@color/white" android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:gravity="center_vertical" android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:paddingStart="3dp" android:text="第" />
+
+            <TextView
+                android:id="@+id/tvShortNumber" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text=""
+                android:textColor="@color/main_blue" />
+
+            <TextView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="期开奖结果" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true" android:text="" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout style="@style/lotteryLlyStyle">
+
+            <TextView
+                android:id="@+id/tvNumber1" style="@style/lotteryTextStyle" />
+
+            <TextView
+                android:id="@+id/tvInfo1" style="@style/infoTextStyle" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/lotteryLlyStyle">
+
+            <TextView
+                android:id="@+id/tvNumber2" style="@style/lotteryTextStyle" />
+
+            <TextView
+                android:id="@+id/tvInfo2" style="@style/infoTextStyle" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/lotteryLlyStyle">
+
+            <TextView
+                android:id="@+id/tvNumber3" style="@style/lotteryTextStyle" />
+
+            <TextView
+                android:id="@+id/tvInfo3" style="@style/infoTextStyle" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/lotteryLlyStyle">
+
+            <TextView
+                android:id="@+id/tvNumber4" style="@style/lotteryTextStyle" />
+
+            <TextView
+                android:id="@+id/tvInfo4" style="@style/infoTextStyle" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/lotteryLlyStyle">
+
+            <TextView
+                android:id="@+id/tvNumber5" style="@style/lotteryTextStyle" />
+
+            <TextView
+                android:id="@+id/tvInfo5" style="@style/infoTextStyle" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/lotteryLlyStyle">
+
+            <TextView
+                android:id="@+id/tvNumber6" style="@style/lotteryTextStyle" />
+
+            <TextView
+                android:id="@+id/tvInfo6" style="@style/infoTextStyle" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:paddingBottom="20dp" android:text="+" android:textSize="30sp" />
+
+        <LinearLayout style="@style/lotteryLlyStyle">
+
+            <TextView
+                android:id="@+id/tvNumber7" style="@style/lotteryTextStyle" />
+
+            <TextView
+                android:id="@+id/tvInfo7" style="@style/infoTextStyle" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

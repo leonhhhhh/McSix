@@ -1,9 +1,10 @@
 package com.cachecats.meituan.widget;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Nullable;
 
 /**
  * Created by solo on 2018/2/28.

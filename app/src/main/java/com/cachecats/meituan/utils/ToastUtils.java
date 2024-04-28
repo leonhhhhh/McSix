@@ -1,6 +1,5 @@
 package com.cachecats.meituan.utils;
 
-import android.content.Context;
 import android.widget.Toast;
 
 import com.cachecats.meituan.MyApplication;

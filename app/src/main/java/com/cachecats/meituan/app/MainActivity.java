@@ -11,7 +11,6 @@ import com.cachecats.meituan.app.nearby.NearbyFragment;
 import com.cachecats.meituan.app.order.OrderFragment;
 import com.cachecats.meituan.base.BaseActivity;
 import com.cachecats.meituan.base.BaseFragment;
-import com.cachecats.meituan.di.DIHelper;
 import com.cachecats.meituan.di.components.DaggerActivityComponent;
 import com.cachecats.meituan.di.modules.ActivityModule;
 import com.cachecats.meituan.widget.bottomtab.CustomBottomTabWidget;

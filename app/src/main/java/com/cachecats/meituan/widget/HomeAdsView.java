@@ -1,7 +1,6 @@
 package com.cachecats.meituan.widget;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +11,7 @@ import com.cachecats.meituan.R;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

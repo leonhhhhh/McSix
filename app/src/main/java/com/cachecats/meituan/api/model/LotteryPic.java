@@ -2,16 +2,16 @@ package com.cachecats.meituan.api.model;
 
 import java.util.Map;
 
-class LotteryPic {
-   private int year;
-   private int id;
-   private String name;
-   private int issue;
-   private String highSrc;
-   private String lowSrc;
-   private int height;
-   private int width;
-   private String type;
+public class LotteryPic {
+   public int year;
+   public int id;
+   public String name;
+   public int issue;
+   public String highSrc;
+   public String lowSrc;
+   public int height;
+   public int width;
+   public String type;
 
    public LotteryPic(int year, int id, String name, int issue, String highSrc, String lowSrc, int height, int width, String type) {
       this.year = year;

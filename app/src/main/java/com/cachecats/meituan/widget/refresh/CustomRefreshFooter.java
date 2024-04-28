@@ -1,7 +1,6 @@
 package com.cachecats.meituan.widget.refresh;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,6 +11,8 @@ import com.scwang.smartrefresh.layout.api.RefreshKernel;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created by solo on 2018/2/1.

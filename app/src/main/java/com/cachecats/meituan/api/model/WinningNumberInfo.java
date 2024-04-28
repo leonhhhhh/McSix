@@ -3,13 +3,13 @@ package com.cachecats.meituan.api.model;
 import java.util.Map;
 
 public class WinningNumberInfo {
-    private int code;
-    private String codeStr;
-    private int type;
-    private int waveColor;
-    private int fiveElement;
-    private String zodiac;
-    private String fiveElementStr;
+    public int code;
+    public String codeStr;
+    public int type;
+    public int waveColor;
+    public int fiveElement;
+    public String zodiac;
+    public String fiveElementStr;
 
     public WinningNumberInfo(int code, String codeStr, int type, int waveColor, int fiveElement, String zodiac, String fiveElementStr) {
         this.code = code;

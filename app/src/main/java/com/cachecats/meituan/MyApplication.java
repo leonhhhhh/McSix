@@ -2,7 +2,6 @@ package com.cachecats.meituan;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import com.cachecats.meituan.di.components.ApplicationComponent;
 import com.cachecats.meituan.di.components.DaggerApplicationComponent;
@@ -10,7 +9,6 @@ import com.cachecats.meituan.di.modules.ApplicationModule;
 import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
-import com.orhanobut.logger.LogAdapter;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.raizlabs.android.dbflow.config.FlowManager;

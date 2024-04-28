@@ -4,7 +4,6 @@ import com.cachecats.meituan.app.HistoryActivity;
 import com.cachecats.meituan.app.MainActivity;
 import com.cachecats.meituan.app.home.HomeFragment;
 import com.cachecats.meituan.di.modules.ActivityModule;
-import com.cachecats.meituan.di.modules.ApplicationModule;
 import com.cachecats.meituan.di.scopes.Scopes;
 
 import dagger.Component;

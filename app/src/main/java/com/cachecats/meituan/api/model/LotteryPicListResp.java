@@ -3,7 +3,7 @@ package com.cachecats.meituan.api.model;
 import java.util.List;
 
 public class LotteryPicListResp extends BasePageResp{
-    private List<LotteryPic> data; // Using a non-generic List instead of List<T>
+    public List<LotteryPic> data; // Using a non-generic List instead of List<T>
 
     public LotteryPicListResp(int page, String size, int total, List<LotteryPic> data) {
         super(page, size, total);

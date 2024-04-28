@@ -1,10 +1,10 @@
 ext {
 
     //Android
-    androidBuildToolsVersion = "27.0.3"
-    androidMinSdkVersion = 18
-    androidTargetSdkVersion = 27
-    androidCompileSdkVersion = 27
+    androidBuildToolsVersion = "30.0.3"
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 28
+    androidCompileSdkVersion = 28
 
     //Libraries
     recyclerViewVersion = "27.0.2"
@@ -12,7 +12,7 @@ ext {
     rxandroidVersion = "2.0.1"
     daggerVersion = "2.14.1"
     glideVersion = "4.5.0"
-    butterKnifeVersion = "8.8.1"
+    butterKnifeVersion = "10.0.0"
     bannerVersion = "1.4.10"
     loggerVersion = "2.1.1"
     baseRecyclerViewAdapterHelperVersion = "2.9.30"

@@ -4,13 +4,8 @@ import com.cachecats.domin.shop.model.ShopModel;
 import com.cachecats.meituan.api.model.LotteryHistoryResp;
 import com.cachecats.meituan.api.model.LotteryPicListResp;
 import com.cachecats.meituan.api.model.LotteryResp;
-import com.cachecats.meituan.app.home.model.IconTitleModel;
 import com.cachecats.meituan.base.BasePresenter;
-import com.cachecats.meituan.base.BaseView;
-import com.cachecats.meituan.widget.HomeAdsView;
-import com.cachecats.meituan.widget.IconTitleView;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 import java.util.List;
 
@@ -50,5 +45,6 @@ public interface HomeFragmentContract {
         void getLotteryHistoryDataFilter();
         void getLotteryPicList();
         void onTabChange(int tab);
+        int getResIdByColor(int waveColor);
     }
 }

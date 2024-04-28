@@ -26,8 +26,9 @@ public class LotteryRepository {
         return apiService.getLotteryHistoryData(type,size);
     }
 
-    public Observable<LotteryHistoryResp> getLotteryHistoryDataFilter(int type, int size,int year) {
-        return apiService.getLotteryHistoryDataFilter(type,size,year);
+    public Observable<LotteryHistoryResp> getLotteryHistoryDataFilter(int type, int size,int year
+            ,int page,int sort,int psort) {
+        return apiService.getLotteryHistoryDataFilter(type,size,year,page,sort,psort);
     }
 
     public Observable<LotteryPicListResp> getHomePicList(int type, int size, int page) {

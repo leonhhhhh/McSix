@@ -17,7 +17,7 @@ public interface ApiService {
 
  @GET("open/lottery/history")
  Observable<LotteryHistoryResp> getLotteryHistoryDataFilter(@Query("type") int type, @Query("size") int size
-         ,@Query("year") int year);
+         ,@Query("year") int year,@Query("page") int page,@Query("sort") int sort,@Query("psort") int psort);
 
  @GET("open/pic/list")
  Observable<LotteryPicListResp> getHomePicList(@Query("type") int type, @Query("size") int size

@@ -1,7 +1,6 @@
 package com.cachecats.meituan.utils;
 
 import android.content.Context;
-import android.media.Image;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;

@@ -3,9 +3,10 @@ package com.cachecats.meituan.widget;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
-class BoldTextview extends android.support.v7.widget.AppCompatTextView {
+import androidx.appcompat.widget.AppCompatTextView;
+
+class BoldTextview extends AppCompatTextView {
     public BoldTextview(Context context) {
         super(context);
         setBold();
