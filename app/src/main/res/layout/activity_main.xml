@@ -14,12 +14,13 @@
             android:src="@drawable/home_header_left_link"
             android:padding="5dp" android:contentDescription="1"
             android:scaleType="centerInside"/>
-        <ImageView
+        <ImageView android:id="@+id/top_menu"
             android:layout_width="50dp" android:layout_height="40dp"
             android:src="@drawable/home_header_left_more"
             android:padding="10dp" android:contentDescription="1"
             android:layout_alignParentRight="true" android:layout_alignTop="@+id/home_header_left_link"
-            android:scaleType="centerInside"/>
+            android:scaleType="centerInside" android:clickable="true"
+            android:focusable="true"/>
     </RelativeLayout>
     <com.cachecats.meituan.widget.bottomtab.CustomBottomTabWidget
         android:id="@+id/tabWidget"

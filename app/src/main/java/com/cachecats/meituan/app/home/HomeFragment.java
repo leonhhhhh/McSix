@@ -19,6 +19,8 @@ import com.cachecats.meituan.api.model.LotteryPicListResp;
 import com.cachecats.meituan.api.model.LotteryResp;
 import com.cachecats.meituan.api.model.WinningNumberInfo;
 import com.cachecats.meituan.app.HistoryActivity;
+import com.cachecats.meituan.app.MainActivity;
+import com.cachecats.meituan.app.WebViewActivity;
 import com.cachecats.meituan.app.home.adapter.ShopListAdapter;
 import com.cachecats.meituan.base.BaseFragment;
 import com.cachecats.meituan.di.components.DaggerActivityComponent;
@@ -67,7 +69,8 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
     LinearLayout llyHistory;
     @BindView(R.id.home_header_current_number)
     TextView tvLastEdNumber;
-
+    @BindView(R.id.llyMenu)
+    LinearLayout llyMenu;
 
     @Inject
     HomeFragmentContract.Presenter presenter;
@@ -101,7 +104,28 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
         initCurrent();
         initLittleModuleRecyclerView();
         initSmartRefreshLayout();
+        initMenu();
     }
+
+    private void initMenu() {
+        for (int i = 0; i < llyMenu.getChildCount(); i++) {
+            View view = llyMenu.getChildAt(i);
+            int finalI = i;
+            view.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                intent.putExtra("url",urls[finalI]);
+                getActivity().startActivity(intent);
+            });
+        }
+    }
+
+    String[] urls = {
+            "http://107.149.219.98:8081/live?lotteryType=1",//开奖直播
+            "http://107.149.219.98:8081/pic-lib?lotteryType=1",//六合图库
+            "http://107.149.219.98:8081/charts?lotteryType=1",//走势图
+            "http://107.149.219.98:8081/ch-nums?lotteryType=1",//跳马助手
+            "http://107.149.219.98:8081/fushi?lotteryType=1",//复式计算
+    };
 
     private void initCurrent() {
         tvHistory.setOnClickListener(v -> {

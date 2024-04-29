@@ -157,7 +157,7 @@
                             android:textColor="@color/gray666" android:textSize="13sp" />
                     </LinearLayout>
 
-                    <LinearLayout
+                    <LinearLayout android:id="@+id/llyMenu"
                         android:layout_width="match_parent" android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp" android:layout_marginTop="15dp"
                         android:layout_marginRight="15dp"
@@ -168,7 +168,8 @@
                         <LinearLayout
                             android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:gravity="center_horizontal"
-                            android:orientation="vertical">
+                            android:orientation="vertical" android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="45dp" android:layout_height="45dp"
@@ -184,7 +185,8 @@
                         <LinearLayout
                             android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:gravity="center_horizontal"
-                            android:orientation="vertical">
+                            android:orientation="vertical" android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="45dp" android:layout_height="45dp"
@@ -200,7 +202,8 @@
                         <LinearLayout
                             android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:gravity="center_horizontal"
-                            android:orientation="vertical">
+                            android:orientation="vertical" android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="45dp" android:layout_height="45dp"
@@ -216,7 +219,8 @@
                         <LinearLayout
                             android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:gravity="center_horizontal"
-                            android:orientation="vertical">
+                            android:orientation="vertical" android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="45dp" android:layout_height="45dp"
@@ -232,7 +236,8 @@
                         <LinearLayout
                             android:layout_width="0dp" android:layout_height="wrap_content"
                             android:layout_weight="1" android:gravity="center_horizontal"
-                            android:orientation="vertical">
+                            android:orientation="vertical" android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="45dp" android:layout_height="45dp"

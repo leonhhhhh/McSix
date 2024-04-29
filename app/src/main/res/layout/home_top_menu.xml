@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:orientation="vertical" android:id="@+id/llyMenu"
+    android:background="@drawable/bg_round_corner_border">
+    <RelativeLayout
+        android:layout_width="140dp" android:layout_height="50dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingLeft="10dp" android:paddingTop="10dp"
+        android:paddingRight="10dp" android:clickable="true"
+        android:focusable="true" >
+        <ImageView
+            android:layout_width="30dp" android:layout_height="30dp"
+            android:src="@drawable/home_header_kjzb"
+            android:scaleType="centerInside" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="开奖直播" android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="wrap_content" android:layout_height="1dp"
+            android:background="#e5e5e5"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="50dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="140dp" android:layout_height="50dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingLeft="10dp" android:paddingTop="10dp"
+        android:paddingRight="10dp" android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:layout_width="30dp" android:layout_height="30dp"
+            android:src="@drawable/home_header_kjls"
+            android:scaleType="centerInside" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="开奖历史" android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="wrap_content" android:layout_height="1dp"
+            android:background="#e5e5e5"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="50dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="140dp" android:layout_height="50dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingLeft="10dp" android:paddingTop="10dp"
+        android:paddingRight="10dp" android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:layout_width="30dp" android:layout_height="30dp"
+            android:src="@drawable/home_header_lhtk"
+            android:scaleType="centerInside" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="六合图库" android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="wrap_content" android:layout_height="1dp"
+            android:background="#e5e5e5"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="50dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="140dp" android:layout_height="50dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingLeft="10dp" android:paddingTop="10dp"
+        android:paddingRight="10dp" android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:layout_width="30dp" android:layout_height="30dp"
+            android:src="@drawable/home_header_zst"
+            android:scaleType="centerInside" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="走势图" android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="wrap_content" android:layout_height="1dp"
+            android:background="#e5e5e5"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="50dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="140dp" android:layout_height="50dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingLeft="10dp" android:paddingTop="10dp"
+        android:paddingRight="10dp" android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:layout_width="30dp" android:layout_height="30dp"
+            android:src="@drawable/home_header_tmzs"
+            android:scaleType="centerInside" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="挑码助手" android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="wrap_content" android:layout_height="1dp"
+            android:background="#e5e5e5"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="50dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="140dp" android:layout_height="50dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingLeft="10dp" android:paddingTop="10dp"
+        android:paddingRight="10dp" android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:layout_width="30dp" android:layout_height="30dp"
+            android:src="@drawable/home_header_fsjs"
+            android:scaleType="centerInside" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="复式计算" android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"/>
+        <View
+            android:layout_width="wrap_content" android:layout_height="1dp"
+            android:background="#e5e5e5"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="50dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="140dp" android:layout_height="50dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:padding="10dp"  android:clickable="true"
+        android:focusable="true">
+        <ImageView
+            android:layout_width="30dp" android:layout_height="30dp"
+            android:src="@drawable/home_header_download"
+            android:scaleType="centerInside" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="APP下载" android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+</LinearLayout>
